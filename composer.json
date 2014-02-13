@@ -1,0 +1,20 @@
+{
+    "name": "denis-isaev/zend-view-helper-head-concatenate",
+    "license": "Apache-2.0",
+    "type": "library",
+    "description": "Zend view helpers for concatenate headscript and headlink into one file",
+    "keywords": ["Zend Framework", "zf1"],
+    "homepage": "https://github.com/denis-isaev/ZendHeadConcat",
+    "authors": [
+        {
+            "name": "Denis Isaev",
+            "email": "denis.isaev@gmail.com"
+        }
+    ],
+    "support": {
+        "source": "https://github.com/denis-isaev/ZendHeadConcat"
+    },
+    "require": {
+        "php":">=5.2.11"
+    }
+}
