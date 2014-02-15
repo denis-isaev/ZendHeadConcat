@@ -35,8 +35,8 @@ class Iden_View_Helper_ConcatenateHeadScript extends Zend_View_Helper_HeadScript
     /**
      * Constructor
      *
-     * @return void
      * @throws Zend_View_Exception
+     * @return Iden_View_Helper_ConcatenateHeadScript
      */
     public function __construct()
     {
@@ -191,7 +191,6 @@ class Iden_View_Helper_ConcatenateHeadScript extends Zend_View_Helper_HeadScript
      * @param array $list
      * @param string $type
      * @param array $attrs
-     * @param bool|string $conditional
      * @return string
      */
     private function makeItemFromList($list, $type, $attrs)
