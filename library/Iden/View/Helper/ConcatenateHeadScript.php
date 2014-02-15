@@ -128,6 +128,7 @@ class Iden_View_Helper_ConcatenateHeadScript extends Zend_View_Helper_HeadScript
     public function concatenateHeadScript($type = 'text/javascript', $attrs = array())
     {
         /** @var $headScript Zend_View_Helper_HeadScript */
+        /** @noinspection PhpUndefinedMethodInspection */
         $headScript = $this->view->headScript();
 
         /* Return parent Zend_View_Helper_HeadScript object if concatenation disabled */
@@ -210,6 +211,7 @@ class Iden_View_Helper_ConcatenateHeadScript extends Zend_View_Helper_HeadScript
     {
         if ($this->view)
         {
+            /** @noinspection PhpUndefinedMethodInspection */
             $useCdata = $this->view->doctype()->isXhtml() ? true : false;
         }
         else
