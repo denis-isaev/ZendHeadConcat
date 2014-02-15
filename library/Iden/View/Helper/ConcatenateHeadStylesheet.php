@@ -36,8 +36,8 @@ class Iden_View_Helper_ConcatenateHeadStylesheet extends Zend_View_Helper_HeadLi
     /**
      * Constructor
      *
-     * @return void
      * @throws Zend_View_Exception
+     * @return Iden_View_Helper_ConcatenateHeadStylesheet
      */
     public function __construct()
     {
@@ -127,7 +127,7 @@ class Iden_View_Helper_ConcatenateHeadStylesheet extends Zend_View_Helper_HeadLi
      */
     public function concatenateHeadStylesheet($media = 'screen', $conditionalStylesheet = false)
     {
-        /** @var $headScript \Zend_View_Helper_HeadLink */
+        /** @var $headScript Zend_View_Helper_HeadLink */
         $headLink = $this->view->headLink();
 
         /* Move noConcat attribute from link tags attributes */
