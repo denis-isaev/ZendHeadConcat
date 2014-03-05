@@ -156,11 +156,11 @@ class Iden_View_Helper_ConcatenateHeadScript extends Zend_View_Helper_HeadScript
                     $item->mtime    = filemtime($item->filepath);
                     continue;
                 }
+            }
 
-                if (!property_exists($item, 'filepath'))
-                {
-                    throw new Zend_View_Exception('File not found for src: '.$item->attributes['src']);
-                }
+            if (!property_exists($item, 'filepath'))
+            {
+                throw new Zend_View_Exception('File not found for src: '.$item->attributes['src']);
             }
         }
 
