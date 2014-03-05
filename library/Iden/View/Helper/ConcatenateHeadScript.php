@@ -122,7 +122,7 @@ class Iden_View_Helper_ConcatenateHeadScript extends Zend_View_Helper_HeadScript
      *
      * @param string $type
      * @param array $attrs
-     * @param bool|string
+     * @throws Zend_View_Exception
      * @return string|Zend_View_Helper_HeadScript
      */
     public function concatenateHeadScript($type = 'text/javascript', $attrs = array())
@@ -147,9 +147,19 @@ class Iden_View_Helper_ConcatenateHeadScript extends Zend_View_Helper_HeadScript
                 {
                     $item->filepath = $v . substr($item->attributes['src'], strlen($k));
                     $item->filepath = preg_replace('/(.*)\?.*/', '$1', $item->filepath);
-                    $item->filepath = realpath($item->filepath);
+                    $realpath = realpath($item->filepath);
+                    if (false === $realpath)
+                    {
+                        throw new Zend_View_Exception('Wrong filepath: '.$item->filepath);
+                    }
+                    $item->filepath = $realpath;
                     $item->mtime    = filemtime($item->filepath);
                     continue;
+                }
+
+                if (!property_exists($item, 'filepath'))
+                {
+                    throw new Zend_View_Exception('File not found for src: '.$item->attributes['src']);
                 }
             }
         }

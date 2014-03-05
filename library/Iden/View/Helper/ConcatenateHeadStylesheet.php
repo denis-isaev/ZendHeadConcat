@@ -123,6 +123,7 @@ class Iden_View_Helper_ConcatenateHeadStylesheet extends Zend_View_Helper_HeadLi
      *
      * @param string $media
      * @param bool|string $conditionalStylesheet
+     * @throws Zend_View_Exception
      * @return string
      */
     public function concatenateHeadStylesheet($media = 'screen', $conditionalStylesheet = false)
@@ -168,10 +169,20 @@ class Iden_View_Helper_ConcatenateHeadStylesheet extends Zend_View_Helper_HeadLi
                 {
                     $item->filepath = $v . substr($item->href, strlen($k));
                     $item->filepath = preg_replace('/(.*)\?.*/', '$1', $item->filepath);
-                    $item->filepath = realpath($item->filepath);
+                    $realpath = realpath($item->filepath);
+                    if (false === $realpath)
+                    {
+                        throw new Zend_View_Exception('Wrong filepath: '.$item->filepath);
+                    }
+                    $item->filepath = $realpath;
                     $item->mtime    = filemtime($item->filepath);
                     continue;
                 }
+            }
+
+            if (!property_exists($item, 'filepath'))
+            {
+                throw new Zend_View_Exception('File not found for Src: '.$item->href);
             }
         }
 
