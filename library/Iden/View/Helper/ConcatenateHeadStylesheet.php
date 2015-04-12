@@ -142,7 +142,7 @@ class Iden_View_Helper_ConcatenateHeadStylesheet extends Zend_View_Helper_HeadLi
             }
             else
             {
-                if ($item->conditionalStylesheet || $item->rel !== 'stylesheet' || $media != $item->media
+                if ($item->rel !== 'stylesheet' || $media != $item->media || $item->conditionalStylesheet
                     || (isset($item->extras) && count($item->extras) > 0))
                 {
                     $item->noConcat = true;
