@@ -245,9 +245,6 @@ class Iden_View_Helper_ConcatenateHeadStylesheet extends Zend_View_Helper_HeadLi
         return $this->itemToString($item);
     }
 
-
-//appendStylesheet($href, $media, $conditionalStylesheet, $extras)
-
     /**
      * Generate concatenated css file
      *
