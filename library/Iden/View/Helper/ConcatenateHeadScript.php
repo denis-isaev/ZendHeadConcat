@@ -158,7 +158,7 @@ class Iden_View_Helper_ConcatenateHeadScript extends Zend_View_Helper_HeadScript
                 }
             }
 
-            if (!property_exists($item, 'filepath'))
+            if (!property_exists($item, 'filepath') && !(array_key_exists('noConcat', $item->attributes) && $item->attributes['noConcat']))
             {
                 throw new Zend_View_Exception('File not found for src: '.$item->attributes['src']);
             }

@@ -180,7 +180,7 @@ class Iden_View_Helper_ConcatenateHeadStylesheet extends Zend_View_Helper_HeadLi
                 }
             }
 
-            if (!property_exists($item, 'filepath'))
+            if (!property_exists($item, 'filepath') && !$item->noConcat)
             {
                 throw new Zend_View_Exception('File not found for Src: '.$item->href);
             }
